@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashutosh Ahirwal | Senior Drupal Frontend Developer</title>
+  <meta name="description" content="Portfolio of Ashutosh Ahirwal, an accomplished Senior Drupal Frontend Developer with 5+ years of expertise in Drupal, Twig, SDC, and Layout Builder.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo">ASHUTOSH</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">ARCHITECT</a></li>
+        <li><a href="#about">CORE</a></li>
+        <li><a href="#experience">PATH</a></li>
+        <li><a href="#projects">BUILDS</a></li>
+        <li><a href="#skills">STACK</a></li>
+        <li><a href="#contact">CONNECT</a></li>
+      </ul>
+      <div class="flex items-center gap-24">
+        <button id="view-toggle" class="btn-toggle">VIEW: VISUAL</button>
+        <a href="mailto:ashutosh15798@gmail.com" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">HIRE ME</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="stage-container">
+    
+    <!-- Hero Layer -->
+    <section class="section-layer active" id="home">
+      <div class="parallax-text">ARCHITECTURE</div>
+      <canvas id="particle-canvas"></canvas>
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="badge">SENIOR DRUPAL ENGINEER</span>
+          <h1 class="hero-title">Thinking Outside <span>The Drupal Box.</span></h1>
+          <p class="hero-description">Senior Frontend Architect with 5.1+ years specializing in complex, scalable Drupal ecosystems.</p>
+          
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary" id="btn-work">ENTER BLUEPRINT</a>
+          </div>
+          
+          <!-- Terminal Widget -->
+          <div class="terminal-container">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+              </div>
+              <div class="terminal-title">ashutosh@architect ~</div>
+            </div>
+            <div class="terminal-body" id="terminal-output"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento About Layer -->
+    <section class="section-layer next" id="about">
+      <div class="parallax-text">PROFILE</div>
+      <div class="container">
+        <div class="bento-grid">
+          <div class="bento-item large">
+            <h2 class="section-title">Senior Strategy</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Specialized in crafting scalable, accessible, and high-performance user interfaces using Twig, SDC, and Layout Builder. Proactive Drupal contributor with 105+ credits.</p>
+            <div class="hero-glow" style="bottom: -20%; right: -20%; opacity: 0.1;"></div>
+          </div>
+          <div class="bento-item">
+            <h4 style="color: var(--accent-primary);">105+</h4>
+            <p>Drupal.org Credits</p>
+          </div>
+          <div class="bento-item">
+            <h4 style="color: var(--accent-primary);">5.1Y</h4>
+            <p>Experience</p>
+          </div>
+          <div class="bento-item wide">
+            <h4>MNC Ready</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Proven track record of mentoring junior developers and delivering SEO-compliant, enterprise-grade solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Path (Experience) Layer -->
+    <section class="section-layer next" id="experience">
+      <div class="parallax-text">CAREER</div>
+      <div class="container">
+        <h2 class="section-title">Architectural Timeline</h2>
+        <div class="experience-list" style="max-width: 100%;">
+          <div class="exp-item">
+            <div class="exp-date">Sep 2025 - PRESENT</div>
+            <div class="exp-company">Dotsquares India</div>
+            <div class="exp-role">Programmer Analyst</div>
+            <p style="color: var(--text-muted);">Front-end and site-building across Drupal 10/11 projects; custom theming and component-based SDC development.</p>
+          </div>
+          <div class="exp-item">
+            <div class="exp-date">Sep 2022 - Sep 2025</div>
+            <div class="exp-company">Specbee Consulting</div>
+            <div class="exp-role">Senior Drupal Frontend Developer</div>
+            <p style="color: var(--text-muted);">Lead the development of various Drupal 9/10 projects with focus on Storybook and Pattern Lab.</p>
+          </div>
+          <div class="exp-item">
+            <div class="exp-date">Jan 2021 - Sep 2022</div>
+            <div class="exp-company">Smashing Infolabs</div>
+            <div class="exp-role">Drupal Developer</div>
+            <p style="color: var(--text-muted);">Responsible for theme development, backend module building, and content architecture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Builds (Projects) Layer -->
+    <section class="section-layer next" id="projects">
+      <div class="parallax-text">BUILDS</div>
+      <div class="container">
+        <h2 class="section-title">Critical Infrastructure</h2>
+        <div class="bento-grid" style="grid-template-rows: auto;">
+          <div class="bento-item wide">
+            <h4 style="color: var(--accent-primary);">Zayed University</h4>
+            <p style="color: var(--text-muted);">Drupal theming and custom module design for sharing data JSON for modern frontend consumption.</p>
+          </div>
+          <div class="bento-item">
+            <h4 style="color: var(--accent-primary);">Apollo Hospitals</h4>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">Drupal 9, SDC, Twig, Layout Builder ecosystem.</p>
+          </div>
+          <div class="bento-item">
+             <h4 style="color: var(--accent-primary);">Nerivio</h4>
+             <p style="color: var(--text-muted); font-size: 0.8rem;">Drupal 9 + Tailwind CSS implementation.</p>
+          </div>
+          <div class="bento-item large">
+            <h4>Open Source</h4>
+            <p style="color: var(--text-muted);">Contributor to Drupal Core patches and maintainer of several community modules. 105+ credits evidence on Drupal.org.</p>
+          </div>
+          <div class="bento-item">
+            <a href="https://www.drupal.org/u/ashutosh-ahirwal" target="_blank" class="btn btn-secondary" style="font-size: 0.7rem; width: 100%; text-align: center;">VIEW DRUPAL.ORG</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack (Skills) Layer -->
+    <section class="section-layer next" id="skills">
+      <div class="parallax-text">STACK</div>
+      <div class="container">
+        <h2 class="section-title">Technical Matrix</h2>
+        <div class="skills-wrapper">
+          <div class="skill-category">
+            <h4>Modern Frontend</h4>
+            <div class="skill-item"><span class="skill-name">Twig / SASS / SDC</span><div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Tailwind / Bootstrap</span><div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Storybook / Pattern Lab</span><div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div></div>
+          </div>
+          <div class="skill-category">
+            <h4>Drupal Core</h4>
+            <div class="skill-item"><span class="skill-name">Site Building / Config</span><div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Layout Builder / Views</span><div class="skill-bar"><div class="skill-progress" style="width: 96%;"></div></div></div>
+            <div class="skill-item"><span class="skill-name">Drush / Composer</span><div class="skill-bar"><div class="skill-progress" style="width: 94%;"></div></div></div>
+          </div>
+        </div>
+        
+        <div class="blog-preview-grid">
+           <a href="https://www.specbee.com/blogs/writing-smarter-drupal-code-starts-with-package-json" target="_blank" class="bento-item">Writing Smarter Drupal Code</a>
+           <a href="https://www.specbee.com/blogs/starterkit-theme-in-drupal-10" target="_blank" class="bento-item">Drupal 10 Starterkit Theme</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect (Blogs/Contact) Layer -->
+    <section class="section-layer next" id="contact">
+      <div class="parallax-text">CONNECT</div>
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title">Initiate Transmission</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;">Ready to help MNCs and innovative startups build the next generation of Drupal enterprise solutions.</p>
+        
+        <div class="social-links" style="justify-content: center; transform: scale(1.5);">
+          <a href="https://www.linkedin.com/in/ashutosh-ahirwal-546859184/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.drupal.org/u/ashutosh-ahirwal" target="_blank"><i class="fab fa-drupal"></i></a>
+          <a href="mailto:ashutosh15798@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        
+        <div style="margin-top: 80px; font-family: monospace; font-size: 0.7rem; color: var(--text-dim);">
+          AUTH: ASHUTOSH_AHIRWAL // VER: 2026.03.01 // STATUS: AVAILABLE_FOR_HIRE
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

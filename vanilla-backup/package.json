@@ -1,0 +1,16 @@
+{
+  "name": "ashutosh-portfolio",
+  "version": "1.0.0",
+  "description": "Premium Drupal Frontend Developer Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y live-server"
+  },
+  "keywords": [
+    "portfolio",
+    "drupal",
+    "frontend"
+  ],
+  "author": "Ashutosh Ahirwal",
+  "license": "MIT"
+}
