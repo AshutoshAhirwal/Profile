@@ -748,11 +748,11 @@ footer {
   .section-layer {
     position: relative !important;
     height: auto !important;
-    min-height: 100vh !important;
+    min-height: auto !important;
     opacity: 1 !important;
     pointer-events: auto !important;
     transform: none !important;
-    padding: 120px 0 60px !important;
+    padding: 100px 0 40px !important;
   }
 
   .bento-grid {
@@ -774,6 +774,11 @@ footer {
     position: absolute;
     right: 20px;
   }
+
+  .section-layer {
+    padding: 80px 0 40px !important;
+  }
+  
   
   .nav-container {
     justify-content: flex-start;
