@@ -26,10 +26,10 @@ const Experience = ({ status }) => {
     <section className={`section-layer ${status}`} id="experience">
       <div className="parallax-text">CAREER</div>
       <div className="container">
-        <h2 className="section-title">Architectural Timeline</h2>
+        <h2 className="section-title animate-fade-right">Architectural Timeline</h2>
         <div className="experience-list" style={{ maxWidth: '100%' }}>
           {experiences.map((exp, i) => (
-            <div key={i} className="exp-item">
+            <div key={i} className={`exp-item animate-fade-up delay-${(i + 1) * 200}`}>
               <div className="exp-date">{exp.date}</div>
               <div className="exp-company">{exp.company}</div>
               <div className="exp-role">{exp.role}</div>
