@@ -45,7 +45,7 @@ const Terminal = () => {
         {lines.map((line, i) => (
           <div key={i} className="terminal-line">
             {line.type === 'output' ? (
-              <span style={{ color: '#FFF' }}>{"> "} {line.text}</span>
+              <span style={{ color: 'var(--text-main)' }}>{"> "} {line.text}</span>
             ) : (
               <>
                 <span style={{ color: '#3B82F6' }}>$</span> {line.text}

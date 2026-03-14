@@ -235,6 +235,9 @@ body.structure-mode .parallax-text {
   color: rgba(0, 0, 0, 0.05);
 }
 
+body.structure-mode nav {
+  background: rgba(240, 240, 240, 0.85);
+}
 
 nav {
   position: fixed;
@@ -282,6 +285,10 @@ nav {
 
 /* --- Hero Section --- */
 
+body.structure-mode .hero {
+  background-image: none;
+}
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -295,6 +302,11 @@ nav {
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 10;
 }
 
 /* Background elements */
@@ -421,6 +433,10 @@ nav {
   min-height: 180px;
 }
 
+body.structure-mode .terminal-body {
+  color: var(--accent-secondary); /* Switch to readable indigo/blue in light mode */
+}
+
 .terminal-line {
   margin-bottom: 8px;
   opacity: 1; /* React will handle appearance */
@@ -434,6 +450,10 @@ nav {
   margin-left: 4px;
   animation: blink 1s infinite;
   vertical-align: middle;
+}
+
+body.structure-mode .terminal-cursor {
+  background: var(--accent-secondary);
 }
 
 @keyframes blink {

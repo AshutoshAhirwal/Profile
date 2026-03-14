@@ -13,7 +13,7 @@ const Navbar = ({ activeSection, onToggleMode, isVisualMode, onNavigate }) => {
   return (
     <nav>
       <div className="container nav-container">
-        <a href="#" className="logo">ASHUTOSH</a>
+        <a href="#" className="logo">ASHUTOSH AHIRWAL</a>
         <ul className="nav-links">
           {links.map((link, index) => (
             <li key={link.id}>
