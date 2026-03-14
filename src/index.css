@@ -735,6 +735,26 @@ footer {
 }
 
 @media (max-width: 1024px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .stage-container {
+    height: auto !important;
+    overflow: visible !important;
+    perspective: none !important;
+  }
+
+  .section-layer {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    padding: 120px 0 60px !important;
+  }
+
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;

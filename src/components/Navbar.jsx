@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Navbar = ({ activeSection, onToggleMode, isVisualMode, onNavigate }) => {
+const Navbar = ({ activeSection, onToggleMode, isVisualMode, onNavigate, isMobile }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const links = [
@@ -38,8 +38,10 @@ const Navbar = ({ activeSection, onToggleMode, isVisualMode, onNavigate }) => {
                 href={`#${link.id}`} 
                 className={activeSection === link.id ? 'active' : ''}
                 onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate(index);
+                  if (!isMobile) {
+                    e.preventDefault();
+                    onNavigate(index);
+                  }
                   setIsMobileMenuOpen(false);
                 }}
               >
