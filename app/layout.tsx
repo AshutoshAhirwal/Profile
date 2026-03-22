@@ -5,8 +5,8 @@ import Scene from "@/components/Scene";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 
 export const metadata: Metadata = {
-  title: "Ashutosh Ahirwal — Senior Drupal Frontend Developer",
-  description: "Senior Drupal Frontend Developer with 5+ years crafting enterprise digital experiences, 105+ Drupal.org credits, and published technical author.",
+  title: "FORCE DEPLOY V2 | Ashutosh Ahirwal",
+  description: "Portfolio of Ashutosh Ahirwal, an accomplished Senior Drupal Frontend Developer with 5+ years of expertise in Drupal, Twig, SDC, and Layout Builder.",
   keywords: ["Drupal", "Frontend Developer", "Ashutosh Ahirwal", "React", "Next.js", "SDC", "Storybook", "Tailwind CSS"],
   authors: [{ name: "Ashutosh Ahirwal" }],
   openGraph: {
