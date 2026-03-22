@@ -5,7 +5,7 @@ import Scene from "@/components/Scene";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 
 export const metadata: Metadata = {
-  title: "FORCE DEPLOY V2 | Ashutosh Ahirwal",
+  title: "Ashutosh Ahirwal — Senior Drupal Frontend Developer",
   description: "Portfolio of Ashutosh Ahirwal, an accomplished Senior Drupal Frontend Developer with 5+ years of expertise in Drupal, Twig, SDC, and Layout Builder.",
   keywords: ["Drupal", "Frontend Developer", "Ashutosh Ahirwal", "React", "Next.js", "SDC", "Storybook", "Tailwind CSS"],
   authors: [{ name: "Ashutosh Ahirwal" }],
