@@ -81,6 +81,19 @@ export default function AccessibilityMenu() {
   const [state, setState] = useState<AccessibilityState>(initialState);
 
   useEffect(() => {
+    const handleClose = () => setIsOpen(false);
+    window.addEventListener('close-a11y-menu', handleClose);
+    return () => window.removeEventListener('close-a11y-menu', handleClose);
+  }, []);
+
+  const toggleOpen = () => {
+    if (!isOpen) {
+      window.dispatchEvent(new CustomEvent('close-chatbot'));
+    }
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
     const body = document.body;
     
     // Clear existing classes
@@ -154,7 +167,7 @@ export default function AccessibilityMenu() {
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         className="acc-trigger"
-        onClick={() => setIsOpen(true)}
+        onClick={toggleOpen}
       >
         <Accessibility size={24} color="var(--ink)" />
       </motion.button>
@@ -270,9 +283,9 @@ export default function AccessibilityMenu() {
         .acc-trigger:hover { transform: scale(1.1) rotate(10deg); }
         
         .acc-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 1001; }
-        .acc-sidebar { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 420px; background: var(--ink); color: var(--cream); z-index: 1002; display: flex; flex-direction: column; overflow: hidden; border-left: 1px solid var(--dim2); box-shadow: -20px 0 50px rgba(0,0,0,0.5); }
+        .acc-sidebar { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 420px; background: var(--ink); color: var(--cream); z-index: 10002; display: flex; flex-direction: column; overflow: hidden; border-left: 1px solid var(--dim2); box-shadow: -20px 0 50px rgba(0,0,0,0.5); }
         
-        .acc-header { padding: 2.5rem 2rem; background: var(--ink); border-bottom: 1px solid var(--dim2); }
+        .acc-header { padding: 2rem 1.5rem; background: var(--ink); border-bottom: 1px solid var(--dim2); }
         .acc-header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
         .acc-close { background: var(--dim); border: 1px solid var(--dim2); color: var(--cream); cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
         .acc-close:hover { background: var(--dim2); border-color: var(--gold); transform: rotate(90deg); }
@@ -291,7 +304,8 @@ export default function AccessibilityMenu() {
         .acc-section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--dim2), transparent); }
         
         .acc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-        .acc-card { background: var(--dim); padding: 1rem; border-radius: 12px; cursor: pointer; border: 1px solid var(--dim2); transition: all 0.3s; display: flex; flex-direction: column; gap: 0.4rem; min-height: 80px; justify-content: center; }
+        @media (max-width: 420px) { .acc-grid { grid-template-columns: 1fr; } }
+        .acc-card { background: var(--dim); padding: 1rem; border-radius: 12px; cursor: pointer; border: 1px solid var(--dim2); transition: all 0.3s; display: flex; flex-direction: column; gap: 0.4rem; min-height: 70px; justify-content: center; }
         .acc-card:hover { border-color: var(--gold-dim); background: var(--dim2); }
         .acc-card.active { border-color: var(--gold); background: rgba(197, 162, 93, 0.1); }
         .acc-card-title { font-weight: 700; font-size: 0.75rem; color: var(--gold); }

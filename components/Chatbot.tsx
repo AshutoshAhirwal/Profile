@@ -15,6 +15,19 @@ interface Message {
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
+  useEffect(() => {
+    const handleClose = () => setIsOpen(false);
+    window.addEventListener('close-chatbot', handleClose);
+    return () => window.removeEventListener('close-chatbot', handleClose);
+  }, []);
+
+  const toggleOpen = () => {
+    if (!isOpen) {
+      window.dispatchEvent(new CustomEvent('close-a11y-menu'));
+    }
+    setIsOpen(!isOpen);
+  };
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -179,7 +192,7 @@ const Chatbot = () => {
         className="chatbot-toggle"
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleOpen}
         style={{
           width: '56px',
           height: '56px',
@@ -220,14 +233,14 @@ const Chatbot = () => {
             transition={{ type: "spring", damping: 25, stiffness: 350 }}
             style={{
               position: 'absolute',
-              bottom: '75px',
-              right: '-4.5rem',
-              width: 'min(420px, 92vw)',
-              height: 'min(640px, 80vh)',
+              bottom: '80px',
+              right: '0',
+              width: 'min(400px, 90vw)',
+              height: 'min(600px, 80vh)',
               backgroundColor: 'rgba(10, 10, 11, 0.98)',
               backdropFilter: 'blur(25px)',
               border: '1px solid var(--dim2)',
-              borderRadius: '28px',
+              borderRadius: '24px',
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',

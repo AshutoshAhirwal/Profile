@@ -135,6 +135,7 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            placeholder="John Doe"
             style={inputStyle(!!errors.name)} 
           />
           {errors.name && <span style={errorTextStyle}>{errors.name}</span>}
@@ -147,6 +148,7 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            placeholder="john@example.com"
             style={inputStyle(!!errors.email)} 
           />
           {errors.email && <span style={errorTextStyle}>{errors.email}</span>}
@@ -172,6 +174,7 @@ export default function ContactForm() {
             name="company"
             value={formData.company}
             onChange={handleChange}
+            placeholder="Specbee / Dotsquares"
             style={inputStyle(false)} 
           />
         </div>
@@ -186,8 +189,8 @@ export default function ContactForm() {
           >
             <option value="" disabled>Select a service...</option>
             <option value="drupal-dev">Drupal Development</option>
-            <option value="drupal-migration">Drupal Migration</option>
-            <option value="frontend-architecture">Frontend Architecture</option>
+            <option value="drupal-migration">Drupal Site</option>
+            <option value="frontend-architecture">Drupal Frontend Architecture</option>
             <option value="consultation">Technical Consultation</option>
             <option value="other">Other</option>
           </select>
@@ -201,6 +204,7 @@ export default function ContactForm() {
             rows={4}
             value={formData.message}
             onChange={handleChange}
+            placeholder="Tell me about your project..."
             style={{ ...inputStyle(!!errors.message), resize: 'none' }} 
           ></textarea>
           {errors.message && <span style={errorTextStyle}>{errors.message}</span>}
