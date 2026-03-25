@@ -13,7 +13,7 @@ export const portfolioData = {
     ],
   },
   hero: {
-    eyebrow: "Open to new opportunities · Jaipur, Rajasthan",
+    eyebrow: "Open to new opportunities · Remote, Onsite, Hybrid",
     firstName: "Ashutosh",
     lastName: "Ahirwal",
     role: "Senior Drupal Frontend Developer",
@@ -393,7 +393,7 @@ export const portfolioData = {
     heading: "Got a project?",
     ghost: "Let's build it.",
     email: "ashutosh15798@gmail.com",
-    phone: "+91 93403 01969 · Jaipur, Rajasthan",
+    phone: "+91 93403 01969 · Indore, MP India",
     cta: "Start a Conversation →",
     socialLinks: [
       { name: "LinkedIn", href: "https://www.linkedin.com/in/ashutosh-ahirwal-546859184" },
