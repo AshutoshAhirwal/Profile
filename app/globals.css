@@ -180,6 +180,8 @@ section { min-height: 100vh; padding: 8rem 4rem; position: relative; display: fl
 .br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
 
 /* SKILLS HUB */
+
+#skills,#projects,#contact,#community,#education { padding: 2rem 4rem; }
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .skill-group { background: var(--dim); border: 1px solid var(--dim2); padding: 3rem; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
 .skill-group:hover { border-color: var(--gold-dim); background: rgba(245,240,232,0.06); transform: translateY(-10px); }

@@ -399,7 +399,7 @@ export const portfolioData = {
       { name: "LinkedIn", href: "https://www.linkedin.com/in/ashutosh-ahirwal-546859184" },
       { name: "Drupal.org", href: "https://www.drupal.org/u/ashutosh-ahirwal" },
       { name: "Specbee Blog", href: "https://www.specbee.com/blogs/aashutosh-ahirwal" },
-      { name: "Portfolio", href: "https://ashutoshahirwal.netlify.app" },
+      { name: "Portfolio", href: "https://ashutosh-ahirwal.vercel.app" },
     ],
   },
   footer: {

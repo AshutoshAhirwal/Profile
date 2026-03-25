@@ -109,13 +109,15 @@ export default function ContactForm() {
 
   const inputStyle = (hasError: boolean): React.CSSProperties => ({ 
     width: '100%', 
-    background: 'var(--dim2)', 
-    border: `1px solid ${hasError ? '#ff4d4d' : 'rgba(245,240,232,.1)'}`, 
-    padding: '0.8rem', 
+    background: 'rgba(245, 240, 232, 0.03)', 
+    border: `1px solid ${hasError ? '#ff4d4d' : 'rgba(245,240,232, 0.08)'}`,
+    padding: '1.2rem', 
     color: 'var(--cream)', 
     fontFamily: 'inherit',
-    transition: 'border-color 0.3s',
+    fontSize: '0.9rem',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     outline: 'none',
+    borderRadius: '4px',
   });
 
   const errorTextStyle: React.CSSProperties = {
@@ -126,8 +128,13 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="contact-form-container" style={{ maxWidth: '800px', width: '100%', marginTop: '3rem', position: 'relative', zIndex: 10 }}>
-      <form onSubmit={handleSubmit} className="contact-grid">
+    <div className="contact-form-container" style={{ maxWidth: '900px', width: '100%', marginTop: '4rem', position: 'relative', zIndex: 10 }}>
+      <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
+        <h3 style={{ fontFamily: "'Instrument Serif', serif", fontSize: '2.5rem', color: 'var(--cream)', marginBottom: '0.5rem' }}>Start a Conversation</h3>
+        <p style={{ color: 'rgba(245,240,232, 0.4)', fontSize: '0.9rem', letterSpacing: '0.05em' }}>Fill out the form below and I'll get back to you within 24 hours.</p>
+      </div>
+      
+      <form onSubmit={handleSubmit} className="contact-grid" style={{ background: 'rgba(10,10,11, 0.4)', padding: '3.5rem', border: '1px solid var(--dim2)', backdropFilter: 'blur(20px)', borderRadius: '8px' }}>
         <div className="grid-item">
           <label style={labelStyle}>Full Name</label>
           <input 
@@ -214,14 +221,58 @@ export default function ContactForm() {
           <button 
             type="submit" 
             disabled={status === 'loading'}
-            className="btn-primary"
-            style={{ width: '100%', justifyContent: 'center', opacity: status === 'loading' ? 0.7 : 1 }}
+            className="btn-submit"
           >
             {status === 'loading' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message →'}
           </button>
           {status === 'error' && <span style={{ ...errorTextStyle, textAlign: 'center', marginTop: '1rem', fontSize: '0.8rem' }}>Failed to send message. Please try again.</span>}
         </div>
       </form>
+
+      <style jsx>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+        .grid-item { grid-column: span 1; }
+        .grid-full { grid-column: span 2; }
+        
+        @media (max-width: 768px) {
+          .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+          .grid-item, .grid-full { grid-column: span 1; }
+          .contact-form-container form { padding: 2rem !important; }
+        }
+
+        .contact-grid input:focus, .contact-grid textarea:focus, .contact-grid select:focus {
+          border-color: var(--gold) !important;
+          background: rgba(197, 162, 93, 0.05) !important;
+          box-shadow: 0 0 20px rgba(197, 162, 93, 0.1);
+        }
+        .btn-submit {
+          background: var(--gold) !important;
+          color: var(--ink) !important;
+          padding: 1.4rem !important;
+          font-weight: 800 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.3em !important;
+          border: none !important;
+          cursor: pointer !important;
+          transition: all 0.4s !important;
+          margin-top: 1rem !important;
+          width: 100% !important;
+          font-size: 0.7rem !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+        .btn-submit:hover {
+          background: #E5C27D !important;
+          transform: translateY(-3px) !important;
+          box-shadow: 0 10px 30px rgba(197, 162, 93, 0.3) !important;
+        }
+        .btn-submit:disabled { opacity: 0.6 !important; cursor: not-allowed !important; }
+      `}</style>
     </div>
   );
 }
