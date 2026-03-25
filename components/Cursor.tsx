@@ -10,6 +10,8 @@ export default function Cursor() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
+      document.documentElement.style.setProperty('--mouse-x', `${(e.clientX / window.innerWidth) * 100}%`);
+      document.documentElement.style.setProperty('--mouse-y', `${(e.clientY / window.innerHeight) * 100}%`);
     };
 
     const handleScroll = () => {
@@ -58,6 +60,10 @@ export default function Cursor() {
       />
       <div id="progress" style={{ width: `${progress}%` }} />
       <div className="noise-overlay" />
+      
+      {/* Accessibility Helpers */}
+      <div className="acc-reading-guide-bar" style={{ top: `${mousePos.y}px` }} />
+      <div className="acc-reading-mask-overlay" />
     </>
   );
 }

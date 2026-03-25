@@ -266,53 +266,65 @@ export default function AccessibilityMenu() {
       </AnimatePresence>
 
       <style jsx global>{`
-        .acc-trigger { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: none; cursor: pointer; z-index: 1000; }
-        .acc-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 1001; }
-        .acc-sidebar { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 400px; background: var(--ink); color: var(--cream); z-index: 1002; display: flex; flex-direction: column; overflow: hidden; border-left: 1px solid var(--dim2); }
-        .acc-header { padding: 2rem 1.5rem; background: var(--ink); text-align: left; }
-        .acc-header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-        .acc-close { background: none; border: 1px solid var(--dim2); color: var(--cream); cursor: pointer; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
-        .acc-close:hover { background: var(--dim2); border-color: var(--gold); }
-        .acc-lang { font-size: 0.6rem; display: flex; align-items: center; font-weight: 600; letter-spacing: 0.1em; color: var(--gold); }
-        .acc-title { font-family: 'Instrument Serif', serif; font-size: 2rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--cream); }
-        .acc-actions { display: flex; justify-content: flex-start; gap: 0.8rem; }
-        .acc-action-btn { background: var(--dim2); color: var(--cream); border: 1px solid var(--dim2); padding: 0.6rem 1rem; border-radius: 0.2rem; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; }
-        .acc-action-btn:hover { border-color: var(--gold); background: var(--dim); }
+        .acc-trigger { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: none; cursor: pointer; z-index: 1000; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .acc-trigger:hover { transform: scale(1.1) rotate(10deg); }
         
-        .acc-content { flex: 1; background: var(--ink); color: var(--cream); padding: 1.5rem; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--gold) var(--ink); }
-        .acc-section { margin-bottom: 2.5rem; }
-        .acc-section-label { font-weight: 700; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; letter-spacing: 0.2em; display: flex; align-items: center; gap: 1rem; }
-        .acc-section-label::after { content: ''; flex: 1; height: 1px; background: var(--dim2); }
+        .acc-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 1001; }
+        .acc-sidebar { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 420px; background: var(--ink); color: var(--cream); z-index: 1002; display: flex; flex-direction: column; overflow: hidden; border-left: 1px solid var(--dim2); box-shadow: -20px 0 50px rgba(0,0,0,0.5); }
         
-        .acc-grid { display: grid; grid-template-columns: 1fr; gap: 0.8rem; }
-        .acc-card { background: var(--dim); padding: 1.2rem; border-radius: 0.2rem; cursor: pointer; border: 1px solid var(--dim2); transition: all 0.3s; }
+        .acc-header { padding: 2.5rem 2rem; background: var(--ink); border-bottom: 1px solid var(--dim2); }
+        .acc-header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .acc-close { background: var(--dim); border: 1px solid var(--dim2); color: var(--cream); cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .acc-close:hover { background: var(--dim2); border-color: var(--gold); transform: rotate(90deg); }
+        .acc-lang { font-size: 0.65rem; display: flex; align-items: center; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; }
+        .acc-title { font-family: 'Instrument Serif', serif; font-size: 2.2rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--cream); line-height: 1.1; }
+        
+        .acc-actions { display: flex; gap: 0.75rem; }
+        .acc-action-btn { flex: 1; background: var(--dim); color: var(--cream); border: 1px solid var(--dim2); padding: 0.8rem; border-radius: 8px; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.3s; min-height: 44px; }
+        .acc-action-btn:hover { border-color: var(--gold); background: var(--dim2); color: var(--gold); }
+        
+        .acc-content { flex: 1; padding: 2rem; overflow-y: auto; scrollbar-width: none; }
+        .acc-content::-webkit-scrollbar { display: none; }
+        
+        .acc-section { margin-bottom: 3rem; }
+        .acc-section-label { font-weight: 800; font-size: 0.6rem; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.25em; display: flex; align-items: center; gap: 1rem; opacity: 0.8; }
+        .acc-section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--dim2), transparent); }
+        
+        .acc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+        .acc-card { background: var(--dim); padding: 1rem; border-radius: 12px; cursor: pointer; border: 1px solid var(--dim2); transition: all 0.3s; display: flex; flex-direction: column; gap: 0.4rem; min-height: 80px; justify-content: center; }
         .acc-card:hover { border-color: var(--gold-dim); background: var(--dim2); }
-        .acc-card.active { border-color: var(--gold); background: var(--dim2); }
-        .acc-card-title { font-weight: 700; font-size: 0.8rem; margin-bottom: 0.4rem; color: var(--gold); }
-        .acc-card-desc { font-size: 0.7rem; color: rgba(245,240,232,0.6); }
+        .acc-card.active { border-color: var(--gold); background: rgba(197, 162, 93, 0.1); }
+        .acc-card-title { font-weight: 700; font-size: 0.75rem; color: var(--gold); }
+        .acc-card-desc { font-size: 0.6rem; color: rgba(245,240,232,0.5); line-height: 1.4; }
         
-        .acc-tools { display: flex; flex-direction: column; gap: 1rem; }
-        .acc-tool-item { background: var(--dim); padding: 1rem; border-radius: 0.2rem; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--dim2); }
-        .acc-tool-info { display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.8); }
-        .acc-tool-ctrl { display: flex; align-items: center; gap: 1rem; }
-        .acc-tool-ctrl button { width: 30px; height: 30px; border-radius: 0.1rem; border: 1px solid var(--dim2); background: var(--dim); color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 400; transition: all 0.2s; }
+        .acc-tools { display: flex; flex-direction: column; gap: 0.75rem; }
+        .acc-tool-item { background: var(--dim); padding: 0.75rem 1rem; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--dim2); min-height: 60px; }
+        .acc-tool-info { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.8); }
+        .acc-tool-ctrl { display: flex; align-items: center; gap: 0.75rem; }
+        .acc-tool-ctrl button { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--dim2); background: var(--dim2); color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 1.2rem; }
         .acc-tool-ctrl button:hover { border-color: var(--gold); color: var(--gold); }
-        .acc-tool-ctrl span { font-size: 0.7rem; font-weight: 700; min-width: 60px; text-align: center; color: var(--gold); }
+        .acc-tool-ctrl span { font-size: 0.7rem; font-weight: 800; min-width: 40px; text-align: center; color: var(--gold); }
         
-        .acc-tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-        .acc-box { background: var(--dim); border: 1px solid var(--dim2); padding: 1.2rem 0.5rem; border-radius: 0.2rem; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; cursor: pointer; transition: all 0.3s; color: rgba(245,240,232,0.8); }
-        .acc-box span { font-size: 0.55rem; font-weight: 700; text-align: center; text-transform: uppercase; letter-spacing: 0.15em; }
+        .acc-box { background: var(--dim); border: 1px solid var(--dim2); padding: 1.2rem 0.5rem; border-radius: 12px; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; transition: all 0.3s; color: rgba(245,240,232,0.6); min-height: 80px; justify-content: center; }
+        .acc-box span { font-size: 0.55rem; font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: 0.12em; }
         .acc-box:hover { border-color: var(--gold-dim); background: var(--dim2); color: var(--cream); }
-        .acc-box.active { border-color: var(--gold); background: var(--dim2); color: var(--gold); }
+        .acc-box.active { border-color: var(--gold); background: rgba(197, 162, 93, 0.1); color: var(--gold); }
         
-        .acc-color-section { margin-top: 1rem; background: var(--dim); padding: 1.2rem; border-radius: 0.2rem; border: 1px solid var(--dim2); }
-        .acc-tool-label { font-size: 0.6rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(245,240,232,0.5); }
-        .acc-colors { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-        .acc-colors button { width: 28px; height: 28px; border-radius: 0.2rem; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; position: relative; }
-        .acc-colors button.active::after { content: '✓'; color: white; font-size: 10px; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); }
-        .acc-color-reset { background: var(--dim2) !important; color: var(--cream) !important; font-size: 10px; border: 1px solid var(--dim2) !important; }
+        .acc-colors { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; background: var(--dim); padding: 1rem; border-radius: 12px; border: 1px solid var(--dim2); }
+        .acc-colors button { width: 32px; height: 32px; border-radius: 6px; border: 2px solid transparent; cursor: pointer; position: relative; transition: transform 0.2s; }
+        .acc-colors button:hover { transform: scale(1.1); }
+        .acc-colors button.active { border-color: var(--gold); transform: scale(1.1); }
+        .acc-color-reset { background: var(--dim2) !important; color: var(--cream) !important; font-size: 14px !important; display: flex; align-items: center; justify-content: center; font-weight: 800 !important; }
         
-        .acc-footer { background: var(--ink); padding: 1.5rem; text-align: center; font-size: 0.5rem; font-weight: 600; color: rgba(245,240,232,0.3); text-transform: uppercase; letter-spacing: 0.2em; border-top: 1px solid var(--dim2); }
+        .acc-footer { padding: 2rem; text-align: center; font-size: 0.55rem; font-weight: 700; color: rgba(245,240,232,0.3); text-transform: uppercase; letter-spacing: 0.2em; border-top: 1px solid var(--dim2); background: var(--ink); }
+
+        @media (max-width: 480px) {
+          .acc-sidebar { max-width: 100%; border-left: none; }
+          .acc-header { padding: 1.5rem; }
+          .acc-content { padding: 1.5rem; }
+          .acc-title { font-size: 1.8rem; }
+          .acc-grid { grid-template-columns: 1fr; }
+        }
       `}</style>
     </>
   );

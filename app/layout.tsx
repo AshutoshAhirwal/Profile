@@ -3,6 +3,7 @@ import "./globals.css";
 import Cursor from "@/components/Cursor";
 import Scene from "@/components/Scene";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
+import Chatbot from "@/components/Chatbot";
 
 export const metadata: Metadata = {
   title: "Ashutosh Ahirwal — Senior Drupal Frontend Developer",
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Cursor />
         <Scene />
         <AccessibilityMenu />
+        <Chatbot />
         {children}
       </body>
     </html>
